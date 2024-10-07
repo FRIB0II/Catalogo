@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/css/styles.css">
+    <link rel="shortcut icon" href="images/livro-teca-logo.png" type="image/x-icon">
+    <title>Livro Teca</title>
+</head>
+<body>
+    <div class="modal-position">
+        <form class="book-modal">
+          <label for="Name">Nome do livro</label>
+          <input type="text" name="Name" id="book-name" required placeholder="Digite o nome do livro">
+          <br>
+          <label for="Description">Descrição do livro</label>
+          <input type="text" name="Description" id="book-description" required placeholder="Informe a descrição">
+          <br>
+          <label for="Url">Caminho da imagem</label>
+          <input type="url" name="Url" id="book-image" required placeholder="Informe a url">
+          <br>
+          <button onclick="AddBook()" type="button">Salvar alterações</button>
+        </form>
+      </div>
+      <script src="./Code/script.js"></script>
+</body>
+</html>
