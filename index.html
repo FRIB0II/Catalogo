@@ -1,12 +1,12 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-br">
 
 <head>
   <meta charset="UTF-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <link rel="stylesheet" href="css/styles.css" />
-  <link rel="shortcut icon" href="/images/livro-teca-logo.png" type="image/x-icon">
+  <link rel="shortcut icon" href="./images/livro-teca-logo.png" type="image/x-icon">
   <title>LivroTeca</title>
 </head>
 
@@ -30,7 +30,7 @@
           </p>
         </div>
         <div>
-          <img src="/images/header-block-image.jpg" alt="LivroTeca">
+          <img src="./images/header-block-image.jpg" alt="LivroTeca">
         </div>
       </div>
     </div>
@@ -43,59 +43,14 @@
       </div>
       <div class="wrapper-crud">
         <div id="crud-buttons">
-          <a href="addBook.html">
-            <button class="crud-buttons" id="add-book">Adicionar livro</button>
-          </a>
+          <button class="crud-buttons" id="add-book">Adicionar livro</button>
         </div>
       </div>
       <div class="filter-card">
         <input type="text" class="search-input" placeholder="Busque seu livro aqui." />
         <button class="search-button">Buscar</button>
       </div>
-      <div class="card-wrapper">
-        <div class="card-item">
-          <img src="images/livros/fahrenheit-451.jpg" alt="fahrenheit 451" />
-          <div class="card-content">
-            <h3>Fahrenheit 451</h3>
-            <p>
-              Distopia onde os livros não são aceitos pela sociedade.
-            </p>
-            <div class="buttons">
-              <button class="crud-buttons" id="get-book">Emprestar livro.</button>
-              <button class="crud-buttons" id="update-book">Atualizar livro</button>
-            </div>
-            <button class="crud-buttons" id="remove-book">Remover livro</button>
-          </div>
-        </div>
-        <div class="card-item">
-          <img src="images/livros/fahrenheit-451.jpg" alt="fahrenheit 451" />
-          <div class="card-content">
-            <h3>Fahrenheit 451</h3>
-            <p>
-              Distopia onde os livros não são aceitos pela sociedade.
-            </p>
-            <div class="buttons">
-              <button class="crud-buttons" id="get-book">Emprestar livro.</button>
-              <button class="crud-buttons" id="update-book">Atualizar livro</button>
-            </div>
-            <button class="crud-buttons" id="remove-book">Remover livro</button>
-          </div>
-        </div>
-        <div class="card-item">
-          <img src="images/livros/fahrenheit-451.jpg" alt="fahrenheit 451" />
-          <div class="card-content">
-            <h3>Fahrenheit 451</h3>
-            <p>
-              Distopia onde os livros não são aceitos pela sociedade.
-            </p>
-            <div class="buttons">
-              <button class="crud-buttons" id="get-book">Emprestar livro.</button>
-              <button class="crud-buttons" id="update-book">Atualizar livro</button>
-            </div>
-            <button class="crud-buttons" id="remove-book">Remover livro</button>
-          </div>
-        </div>
-      </div>
+      <div class="card-wrapper" id="card-wrapper"></div>
     </div>
   </section>
 
@@ -209,6 +164,8 @@
     </div>
     <div class="last">LivroTeca - 2024 - Use da melhor forma!</div>
   </footer>
+  
+  <script src="./Code/index.js"></script>
 </body>
 
 </html>
