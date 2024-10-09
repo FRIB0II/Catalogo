@@ -123,8 +123,6 @@ document.addEventListener("DOMContentLoaded", () => {
 
   const modal = document.querySelector(".modal-container");
   const goBack = document.querySelector("#go-back");
-  const saveChanges = document.querySelector("#send-data");
-  const openModal = document.querySelector("#update-book");
 
   goBack.addEventListener("click", () => {
     modal.style.display = "none";
@@ -146,29 +144,56 @@ export function DeleteBook(index)
 
 function OpenModal(index)
   {
+    const modal = document.querySelector(".modal-container");
     modal.style.display = "flex";
+  
+    const saveChanges = document.querySelector("#send-data");
+  
+    // Remove event listeners anteriores para evitar múltiplos binds no clique
+    saveChanges.replaceWith(saveChanges.cloneNode(true)); 
+    const newSaveChanges = document.querySelector("#send-data");
 
-    saveChanges.addEventListener("click", (index) => {
+    // Adiciona o event listener ao botão de salvar mudanças
+    newSaveChanges.addEventListener("click", () => {
       modal.style.display = "none";
-      UpdateBook(index);
+      UpdateBook(index);  // Agora o index será capturado corretamente
     });
   }
 
   function UpdateBook(index)
-  { 
-    let mybd = "localdb"; 
-
+  {  
+    console.log("Index recebido:", index);  // Verifique o valor de index
+  
     let nameG = document.querySelector("#book-name");
     let descriptionG = document.querySelector("#book-description");
     let pathG = document.querySelector("#book-image");
-
-    var bookList = JSON.parse(localStorage.getItem(mybd));
-
-    var mybook = bookList[index];
-
-    mybook.nome = nameG;
-    mybook.descricao = descriptionG;
-    mybook.caminho = pathG;
-
-    loadBooks();
+  
+    console.log("Campos selecionados:", nameG, descriptionG, pathG);  // Verifique se os campos foram encontrados
+  
+    if (!nameG || !descriptionG || !pathG) {
+      console.error("Erro: Um ou mais campos de formulário não foram encontrados.");
+      return;
+    }
+  
+    let mybd = "localDB"; 
+    let bookList = JSON.parse(localStorage.getItem(mybd));
+  
+    if (!bookList || !bookList[index]) {
+      console.error("O livro não foi encontrado no índice fornecido.");
+      return;
+    }
+  
+    let mybook = bookList[index];
+  
+    console.log("Livro encontrado:", mybook);  // Verifique se mybook é válido
+  
+    // Atualiza os valores do livro com os valores dos inputs
+    mybook.nome = nameG.value;
+    mybook.descricao = descriptionG.value;
+    mybook.caminho = pathG.value;
+  
+    // Atualiza o localStorage com a nova lista de livros
+    localStorage.setItem(mybd, JSON.stringify(bookList)); 
+    
+    loadBooks();  // Recarrega os livros atualizados na tela
   }
