@@ -1,6 +1,9 @@
-document.addEventListener("DOMContentLoaded", () => {
+document.addEventListener("DOMContentLoaded", () => 
+{
+    // Botão que adiciona um novo livro.
     const buttonSend = document.querySelector("#send-data");
 
+    // Quando ele for clicado ele realiza a operação de adição.
     buttonSend.onclick = () => {
         var mybd = "localDB";
         var name = document.querySelector("#book-name").value;
