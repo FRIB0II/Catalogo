@@ -112,10 +112,21 @@ document.addEventListener("DOMContentLoaded", () => {
   }
 
   const removeBook = document.querySelector("#remove-book");
-  removeBook.onclick = () =>
-  { 
+  removeBook.onclick = () => { 
       window.location.href = "removeBook.html";
   }
+
+  const modal = document.querySelector(".modal-container");
+  console.log(modal)
+  const goBack = document.querySelector("#go-back");
+  
+  goBack.addEventListener("click", () => {
+    console.log("Poraaa")
+    console.log(modal.classList);
+    modal.style.display = "none";
+    console.log(modal.classList);
+    console.log("Clicadoooooo!!")
+  });
 
 });
 

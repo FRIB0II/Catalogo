@@ -10,7 +10,7 @@
   <title>LivroTeca</title>
 </head>
 
-<body>
+  <body>
   <header>
     <div class="content">
       <nav>
@@ -140,6 +140,26 @@
     </div>
   </section>
 
+  <div class="modal-container">
+    <div class="modal">
+      <form class="book-modal" id="add-book-form">
+        <label for="book-name">Nome do livro</label>
+        <input type="text" name="Name" id="book-name" required placeholder="Digite o nome do livro">
+        <br>
+        <label for="book-description">Descrição do livro</label>
+        <input type="text" name="Description" id="book-description" required placeholder="Informe a descrição">
+        <br>
+        <label for="book-image">Caminho da imagem</label>
+        <input type="url" name="Url" id="book-image" required placeholder="Informe a url">
+        <br>
+        <div id="modal-buttons">
+          <button type="button" id="go-back">Voltar</button>
+          <button type="button" id="send-data">Salvar alterações</button>
+        </div>
+      </form>
+    </div>
+  </div>
+
   <footer>
     <div class="main">
       <div class="content footer-links">
@@ -164,8 +184,8 @@
     </div>
     <div class="last">LivroTeca - 2024 - Use da melhor forma!</div>
   </footer>
-  
+
   <script type="module" src="./Code/index.js"></script>
-</body>
+  </body>
 
 </html>
