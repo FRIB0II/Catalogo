@@ -60,12 +60,17 @@ document.addEventListener("DOMContentLoaded", () => {
           <p>${book.descricao}</p>
           <div class="buttons">
             <button class="crud-buttons" id="get-book">Emprestar livro.</button>
-            <button class="crud-buttons" id="update-book" onclick=UpdateBook(${index})">Atualizar livro</button>
+            <button class="crud-buttons" id="update-book" onclick="OpenModal( ${index})">Atualizar livro</button>
           </div>
           <button class="crud-buttons" id="remove-book" onclick="DeleteBook(${index})">Remover livro</button>
         </div>
       </div>
     `;
+
+    const updateButton = card.querySelector("#update-book");
+    updateButton.onclick = () => OpenModal(index);
+
+
     // Adiciona o card criado ao final do elemento.
     containerCatalogo.appendChild(card);
   }
@@ -117,15 +122,12 @@ document.addEventListener("DOMContentLoaded", () => {
   }
 
   const modal = document.querySelector(".modal-container");
-  console.log(modal)
   const goBack = document.querySelector("#go-back");
-  
+  const saveChanges = document.querySelector("#send-data");
+  const openModal = document.querySelector("#update-book");
+
   goBack.addEventListener("click", () => {
-    console.log("Poraaa")
-    console.log(modal.classList);
     modal.style.display = "none";
-    console.log(modal.classList);
-    console.log("Clicadoooooo!!")
   });
 
 });
@@ -141,3 +143,32 @@ export function DeleteBook(index)
   bookList.splice(index, 1);
   localStorage.setItem(mybd, JSON.stringify(bookList));
 }
+
+function OpenModal(index)
+  {
+    modal.style.display = "flex";
+
+    saveChanges.addEventListener("click", (index) => {
+      modal.style.display = "none";
+      UpdateBook(index);
+    });
+  }
+
+  function UpdateBook(index)
+  { 
+    let mybd = "localdb"; 
+
+    let nameG = document.querySelector("#book-name");
+    let descriptionG = document.querySelector("#book-description");
+    let pathG = document.querySelector("#book-image");
+
+    var bookList = JSON.parse(localStorage.getItem(mybd));
+
+    var mybook = bookList[index];
+
+    mybook.nome = nameG;
+    mybook.descricao = descriptionG;
+    mybook.caminho = pathG;
+
+    loadBooks();
+  }
